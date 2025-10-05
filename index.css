@@ -1,0 +1,216 @@
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fafafa;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+.title-bar {
+    background-color: #222;
+    color: #eee;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.selectors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    gap: 1rem;
+    //flex-wrap: wrap;
+}
+select {
+    background-color: #333;
+    border: none;
+    color: #eee;
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    max-width: 180px;
+}
+select:hover, select:focus {
+    background-color: #555;
+    outline: none;
+}
+.main {
+    flex: 1;
+    display: flex;
+    height: calc(100vh - 64px);
+    overflow: hidden;
+}
+.sidebar {
+    background-color: #222;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    border-right: 1px solid #333;
+    min-width: 160px;
+}
+.sidebar button {
+    background-color: transparent;
+    border: none;
+    color: #bbb;
+    padding: 0.7rem 1rem;
+    margin: 0 0 0.25rem 0;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.sidebar button:hover,
+.sidebar button.active {
+    background-color: #444;
+    color: white;
+}
+.content {
+    flex: 1;
+    padding: 2rem 3rem;
+    overflow-y: auto;
+    background-color: white;
+    min-width: 0;
+}
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.6rem;
+}
+textarea {
+    width: 100%;
+    min-height: 100px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    resize: vertical;
+    color: #222;
+    background-color: #fafafa;
+    transition: border-color 0.3s;
+}
+textarea:focus {
+    border-color: #0078d7;
+    outline: none;
+    background-color: white;
+}
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .main {
+        flex-direction: column;
+        height: auto;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #333;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.5rem 0;
+        white-space: nowrap;
+        min-width: 0;
+    }
+    .sidebar button {
+        flex: 1 0 auto;
+        margin: 0 0.25rem;
+        padding: 0.7rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+    .content {
+        padding: 1.5rem 1rem;
+        height: auto;
+    }
+    .title-bar {
+        flex-wrap: wrap;
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    .selectors {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+    }
+    select {
+        max-width: 140px;
+    }
+}
+@media (max-width: 500px){
+    .selectors {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    select {
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+    .sidebar button {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.5rem;
+    }
+    .content {
+        padding: 1rem;
+    }
+    label {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    textarea {
+        font-size: 0.9rem;
+    }
+}
+/* Theme: Tokyonight */
+body.tokyonight { background: #1a1b26; color: #c0caf5; }
+body.tokyonight .title-bar { background-color: #24283b; color: #c0caf5;}
+body.tokyonight select {background-color: #414868;color: #c0caf5;}
+body.tokyonight select:hover,
+body.tokyonight select:focus {background-color: #7aa2f7;color: #1a1b26;}
+body.tokyonight .sidebar {background-color: #24283b; border-right-color: #414868;}
+body.tokyonight .sidebar button {color: #a9b1d6;}
+body.tokyonight .sidebar button:hover,
+body.tokyonight .sidebar button.active {background-color: #7aa2f7; color: #1a1b26;}
+body.tokyonight .content {background-color: #24283b;color: #c0caf5;}
+body.tokyonight textarea {background-color: #1a1b26;border-color: #414868;color: #c0caf5;}
+body.tokyonight textarea:focus {background-color: #24283b;}
+/* Theme: Gruvbox */
+body.gruvbox { background: #282828; color: #ebdbb2;}
+body.gruvbox .title-bar {background-color: #3c3836;color: #ebdbb2;}
+body.gruvbox select {background-color: #665c54;color: #ebdbb2;}
+body.gruvbox select:hover,
+body.gruvbox select:focus {background-color: #fabd2f;color: #282828;}
+body.gruvbox .sidebar {background-color: #3c3836;border-right-color: #665c54;}
+body.gruvbox .sidebar button {color: #d5c4a1;}
+body.gruvbox .sidebar button:hover,
+body.gruvbox .sidebar button.active {background-color: #bdae93;color: #282828;}
+body.gruvbox .content {background-color: #3c3836;color: #ebdbb2;}
+body.gruvbox textarea {background-color: #282828;border-color: #665c54;color: #ebdbb2;}
+body.gruvbox textarea:focus {background-color: #3c3836;}
+/* Theme: One Dark */
+body.onedark { background: #282c34; color: #abb2bf;}
+body.onedark .title-bar {background-color: #21252b;color: #abb2bf;}
+body.onedark select {background-color: #3b4048;color: #abb2bf;}
+body.onedark select:hover,
+body.onedark select:focus {background-color: #61afef;color: #282c34;}
+body.onedark .sidebar {background-color: #21252b;border-right-color: #3b4048;}
+body.onedark .sidebar button {color: #828997;}
+body.onedark .sidebar button:hover,
+body.onedark .sidebar button.active {background-color: #61afef;color: #282c34;}
+body.onedark .content {background-color: #21252b;color: #abb2bf;}
+body.onedark textarea {background-color: #282c34;border-color: #3b4048;color: #abb2bf;}
+body.onedark textarea:focus {background-color: #21252b;}

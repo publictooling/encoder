@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="index.css" rel="stylesheet"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tooling</title>
+</head>
+<body>
+  <div class="title-bar">
+    tooling
+    <div class="selectors">
+      <select class="category-select" id="categoryPicker" aria-label="Select category">
+        <option value="encoders">Encoders & Decoders</option>
+        <option value="hashes">Hashing Algorithms</option>
+      </select>
+      <select class="theme-selector" id="themePicker" aria-label="Select theme">
+        <option value="default">Default</option>
+        <option value="tokyonight">Tokyonight</option>
+        <option value="gruvbox">Gruvbox</option>
+        <option value="onedark">One Dark Pro</option>
+      </select>
+    </div>
+  </div>
+  <div class="main">
+    <nav class="sidebar" id="sidebar"></nav>
+    <section class="content" id="content"></section>
+  </div>
+<script src="index.js"></script>
+</body>
+</html>
